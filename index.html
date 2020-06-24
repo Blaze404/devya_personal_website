@@ -72,7 +72,11 @@
         <link rel="stylesheet" href="css/responsive.css">
     </head>
     <body>
-        
+
+		<!-- CONTENT -->
+		
+		<div id="main-body">
+		
         <!--================Header Menu Area =================-->
         <header class="header_area">
             <div class="main_menu" id="mainNav">
@@ -760,7 +764,18 @@
         </footer>
         <!--================End Footer Area =================-->
         
-        
+	</div>
+
+	<!-- END CONTENT -->
+
+	<!-- PRELOADER -->
+	<div class="preloader">
+            <div class="loader">
+                <div class="shadow"></div>
+                <div class="box"></div>
+            </div>
+		</div>
+		<!-- END PRELOADER -->
 		
 		<!-- MODAL AREA -->
 		<div style="float: none" ></div>
@@ -905,18 +920,39 @@
 				}
 			}
 			
-			var response = '';
-				$.ajax({ type: "GET",   
-						url: "http://catalyst.geca.ac.in/api/debba/getalltestimony.php",   
-						async: false,
-						success : function(text)
-						{
-							response = text;
-							// console.log( typeof(response));
-							updateData(response);
-						}
-				});
+			// var response = '';
+			// 	$.ajax({ type: "GET",   
+			// 			url: "http://catalyst.geca.ac.in/api/debba/getalltestimony.php",   
+			// 			async: false,
+			// 			success : function(text)
+			// 			{
+			// 				response = text;
+			// 				// console.log( typeof(response));
+			// 				updateData(response);
+			// 			}
+			// 	});
 
+
+				(function($) {
+					"use strict";
+
+					
+					$('#main-body').hide();
+					setInterval(
+					function(){ 
+						$(".preloader").fadeOut(300)
+						$('#main-body').fadeIn(300);
+					},
+					1000
+					);
+
+					
+					jQuery(window).load(function() {
+					// $(".preloader").fadeOut(1000); // this will be active for 
+
+					});
+
+				}(jQuery));
 
 
 		</script>
