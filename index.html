@@ -691,7 +691,18 @@
         		<div class="testi_inner">
 					<div class="testi_slider owl-carousel" id="testimony_div">
 						
-						
+							<div class="item">
+									<div class="testi_item">
+										<p>Working on so many different projects, workshop, events and much more with Devyani, I can say that she really gives it all into the task she does. She is hard working, efficient, quick learner and always up to take the lead. Cheers.</p>
+										<h4>Mustafa Qazi</h4>
+										<a href="#"><i class="fa fa-star"></i></a>
+										<a href="#"><i class="fa fa-star"></i></a>
+										<a href="#"><i class="fa fa-star"></i></a>
+										<a href="#"><i class="fa fa-star"></i></a>
+										<a href="#"><i class="fa fa-star"></i></a>
+										<!-- <a href="#"><i class="fa fa-star-half-o"></i></a> -->
+									</div>
+								</div>
 						
 					</div>
 				</div>
@@ -888,23 +899,12 @@
 					text = text + '</div> </div>'
 					// console.log(text);
 					
-					var div = document.getElementById('testimony_div');
-					div.innerHTML += text;
+					// var div = document.getElementById('testimony_div');
+					// div.innerHTML += text;
 
 				}
 			}
-			// <div class="item">
-			// 				<div class="testi_item">
-			// 					<p>Working on so many different projects, workshop, events and much more with Devyani, I can say that she really gives it all into the task she does. She is hard working, efficient, quick learner and always up to take the lead. Cheers.</p>
-			// 					<h4>Mustafa Qazi</h4>
-			// 					<a href="#"><i class="fa fa-star"></i></a>
-			// 					<a href="#"><i class="fa fa-star"></i></a>
-			// 					<a href="#"><i class="fa fa-star"></i></a>
-			// 					<a href="#"><i class="fa fa-star"></i></a>
-			// 					<a href="#"><i class="fa fa-star"></i></a>
-			// 					<!-- <a href="#"><i class="fa fa-star-half-o"></i></a> -->
-			// 				</div>
-			// 			</div>
+			
 			var response = '';
 				$.ajax({ type: "GET",   
 						url: "http://catalyst.geca.ac.in/api/debba/getalltestimony.php",   
