@@ -3160,3 +3160,23 @@ h6 {
           transform: scale(1.2,1);
       }
   }
+
+
+  /* ##### MY */
+  .projects-detail-text{
+    font-weight: 600;
+  }
+  .projects-detail-achievement{
+    font-weight: 900;
+  }
+  .white-bg {
+    background: #fff; }
+.discover-button{
+  margin-bottom: 5px;
+}  
+.text-center{
+  text-align: center
+}
+.none-float{
+  float: none;
+}
