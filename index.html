@@ -814,7 +814,7 @@
 						<h4 class="modal-title">Add a testimony</h4>
 						</div>
 						<div class="modal-body">
-								<form action="http://catalyst.geca.ac.in/api/debba/testimonysubmit.php" id="testimony-form">
+								<form action="http://catalyst.geca.ac.in/api/debba/testimonysubmit.php" method="POST" id="testimony-form">
 									<div class="form-group">
 									  <label for="name">Your Name:</label>
 									  <input required type="text" class="form-control" name="name" id="name">
@@ -895,26 +895,26 @@
 			
 			$("#testimony-form").submit(function(e) {
 
-				e.preventDefault(); // avoid to execute the actual submit of the form.
+				// e.preventDefault(); // avoid to execute the actual submit of the form.
 
 				var form = $(this);
 				var url = form.attr('action');
-
-				$.ajax({
-					type: "POST",
-					url: url,
-					data: form.serialize(), // serializes the form's elements.
-					dataType: 'json',
-					success: function(data)
-					{
-						console.log(data);
-						toastr.success('Thank you for your testimony :)');
-					},
-					error: function(data)
-					{
-						toastr.error('Looks like something went wrong!');
-					}
-					});
+				toastr.success('Thank you for your testimony. It will be added soon:)');
+				// $.ajax({
+				// 	type: "POST",
+				// 	url: url,
+				// 	data: form.serialize(), // serializes the form's elements.
+				// 	dataType: 'json',
+				// 	success: function(data)
+				// 	{
+				// 		console.log(data);
+				// 		toastr.success('Thank you for your testimony. It will be added soon:)');
+				// 	},
+				// 	error: function(data)
+				// 	{
+				// 		toastr.error('Looks like something went wrong!');
+				// 	}
+				// 	});
 
 			});
 			function updateData( resp){
