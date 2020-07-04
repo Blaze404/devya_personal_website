@@ -912,11 +912,13 @@
 					headers: {"cache-control": "no-cache", "x-apikey": "1c99d0d1e9e83d0b423a7620c761e4235bd79",
 								"content-type": "application/json"},
 					data: JSON.stringify({
-					"name": $('#name').val(),
-					"testimony": $('#testimony').val(),
-					"stars":  $('#sel1').find(":selected").text()
-					}),
+								"name": $('#name').val(),
+								"testimony": $('#testimony').val(),
+								"stars":  $('#sel1').find(":selected").text()
+								}),
 					dataType: 'json',
+					processData: false,
+					contentType: "application/json; charset=UTF-8",
 					success: function(data)
 					{
 						console.log(data);
