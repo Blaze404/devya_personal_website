@@ -56,6 +56,9 @@
 
       <div class="container">
         <div class="row">
+            <div class="com md 12">
+                <h3>Hi Debbu,</h3>
+            </div>
             <div class="col md 12">
                 <table class="table">
                     <thead>
@@ -87,7 +90,7 @@
               success:  function(response){
                   
                 for (i=0; i<response.length; i++){
-                    console.log(response[i]);
+                    // console.log(response[i]);
                     var text = '<tr> <td>';
                     text += response[i].name;
                     text += "</td> <td> ";
@@ -96,21 +99,49 @@
                     text += response[i].stars;
                     text += "</td> <td>";
                     if (response[i].selection == "false"){
-                        text += '<button class="btn btn-primary" id="' + response[i]._id + '">Select</button></td>';
+                        text += '<button class="btn btn-primary selection-butt" id="' + response[i]._id + '">Select</button></td>';
                     }
                     else{
-                        text += '<button class="btn btn-warning" id="' + response[i]._id + '">Unselect</button></td>';
+                        text += '<button class="btn btn-warning selection-butt" id="' + response[i]._id + '">Unselect</button></td>';
                     }
                     text += "</tr>";
-                    console.log(text);
+                    // console.log(text);
                     $('#records_table').append(text);
                 }
+                activateListeners();
                 // console.log(response);
               },
               error: function(response){
-                  alert('something went wrong');
+                  alert('something went wrong, try again debbu');
               }
           })
+
+          function activateListeners(){
+            $('.selection-butt').click(function(e){
+              var btn_clicker = $(this);
+              alert(btn_clicker.attr("id"));
+              var url = "https://debba-f2f3.restdb.io/rest/testimonies/" + btn_clicker.attr("id");
+              $.ajax({
+                  type: "PATCH",
+                  url: url,
+                  headers: {"cache-control": "no-cache",
+							"x-apikey": "5f004df7a529a1752c476d59",
+							'Content-Type': 'application/json'},
+                  dataType: 'json',
+                  crossDomain: true,
+                  data: JSON.stringify({selection: "true"}),
+                  success: function(response){
+                    window.location.reload();
+                  },
+                  error: function(response){
+                    alert('something went wrong, try again debbu');
+                  }
+              })
+            })
+          }
+
+          
+
       </script>
 
 </body>
