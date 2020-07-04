@@ -119,7 +119,7 @@
           function activateListeners(){
             $('.selection-butt').click(function(e){
               var btn_clicker = $(this);
-              alert(btn_clicker.attr("id"));
+            //   alert(btn_clicker.attr("id"));
               var url = "https://debba-f2f3.restdb.io/rest/testimonies/" + btn_clicker.attr("id");
               $.ajax({
                   type: "PATCH",
