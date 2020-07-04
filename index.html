@@ -814,7 +814,7 @@
 						<h4 class="modal-title">Add a testimony</h4>
 						</div>
 						<div class="modal-body">
-								<form action="http://catalyst.geca.ac.in/api/debba/testimonysubmit.php" method="POST" id="testimony-form">
+								<form action="https://debba-f2f3.restdb.io/rest/testimonies" id="testimony-form">
 									<div class="form-group">
 									  <label for="name">Your Name:</label>
 									  <input required type="text" class="form-control" name="name" id="name">
@@ -837,7 +837,7 @@
 													<option value="1">5! Yaay!</option>
 											</select>
 										  </div>
-									
+									<input type="hidden" name="key" value="5f004b79a529a1752c476d58">
 									<button type="submit" id="testimony-form-submit" class="btn btn-primary">Submit</button>
 								  </form>
 						</div>
@@ -895,26 +895,39 @@
 			
 			$("#testimony-form").submit(function(e) {
 
-				// e.preventDefault(); // avoid to execute the actual submit of the form.
+				e.preventDefault(); // avoid to execute the actual submit of the form.
 
 				var form = $(this);
 				var url = form.attr('action');
-				toastr.success('Thank you for your testimony. It will be added soon:)');
-				// $.ajax({
-				// 	type: "POST",
-				// 	url: url,
-				// 	data: form.serialize(), // serializes the form's elements.
-				// 	dataType: 'json',
-				// 	success: function(data)
-				// 	{
-				// 		console.log(data);
-				// 		toastr.success('Thank you for your testimony. It will be added soon:)');
-				// 	},
-				// 	error: function(data)
-				// 	{
-				// 		toastr.error('Looks like something went wrong!');
-				// 	}
-				// 	});
+
+				var sendInfo = {
+					"name": $('#name').val(),
+					"testimony": $('#testimony').val(),
+					"stars":  $('#sel1').find(":selected").val()
+				}
+				console.log(sendInfo);
+				$.ajax({
+					type: "POST",
+					url: url,
+					headers: {"cache-control": "no-cache", "x-apikey": "1c99d0d1e9e83d0b423a7620c761e4235bd79",
+								"content-type": "application/json"},
+					data: JSON.stringify({
+					"name": $('#name').val(),
+					"testimony": $('#testimony').val(),
+					"stars":  $('#sel1').find(":selected").text()
+					}),
+					dataType: 'json',
+					success: function(data)
+					{
+						console.log(data);
+						toastr.success('Thank you for your testimony. It will be added soon:)');
+					},
+					error: function(data)
+					{
+						console.log(data);
+						toastr.error('Looks like something went wrong!');
+					}
+					});
 
 			});
 			function updateData( resp){
