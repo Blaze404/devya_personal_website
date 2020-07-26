@@ -188,7 +188,7 @@ li a:hover {
     transform: translateX(-50px);
     top: 75%;
     pointer-events: none;
-    animation: rocket-movement 200s linear infinite both running;
+    animation: rocket-movement 37s linear infinite both running;
 }
 
 .object_earth{
